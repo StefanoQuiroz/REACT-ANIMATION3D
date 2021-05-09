@@ -11,7 +11,7 @@ const DetailsContainer = styled.div`
 `;
 
 const MediumText = styled.span`
-    font-size: 14px;
+    font-size: 11.5px;
     color: #fff;
     font-weight: 800;
     text-transform: uppercase;
@@ -70,6 +70,7 @@ const Details = (props) => {
             <SpacedHorizontalContainer>
                 <MediumText>JORDAN CLASSIC LIMITED</MediumText>
                 <MediumText>CLP 173850.00</MediumText>
+                <MediumText>PEN 947.42</MediumText>
                 <BuyButton>BUY</BuyButton>
             </SpacedHorizontalContainer>
             <Logo>
