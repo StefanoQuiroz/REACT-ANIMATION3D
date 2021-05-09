@@ -1,11 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import nikeAirborne from '../../images/air-jordan-transparent.png';
-import {motion} from 'framer-motion';
+import {motion, useMotionValue, useTransform} from 'framer-motion';
 import Details from './Details';
 
+//Animation
+const CardWrapper = styled.div`
+    width: 100%;
+    perspective: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
 
-const CardContainer = styled.div`
+
+const CardContainer = styled(motion.div)`
     width: 285px;
     height: 500px;
     display: flex;
@@ -95,23 +104,38 @@ const Item = styled(motion.div)`
 `;
 
 const Card = (props) => {
+    //framer-motion coordenadas
+    const x= useMotionValue(0);
+    const y = useMotionValue(0);
+    //Interpolación
+    const rotateX = useTransform(y, [-100,100], [30,-30]);
+    const rotateY = useTransform(x, [-100,100], [-30, 30]);
     return (
-        <CardContainer>
-           <TopContainer>
-                <CircleWrapper>
-                    <Circle/>
-                </CircleWrapper>
-                <ItemWrapper>
-                    <Item style={{rotate : "-25deg"}}>
-                        <img src={nikeAirborne} alt="tenis"/> 
-                    </Item>
-                </ItemWrapper>
-                <Text>Nike AIR</Text>
-           </TopContainer>
-           <BottomContainer>
-                <Details/>               
-           </BottomContainer>
-        </CardContainer>        
+        <CardWrapper>
+            <CardContainer 
+                style={{x,y,rotateX, rotateY, z:100}} 
+                drag dragElastic={0.16} 
+                dragConstraints={{top: 0, right: 0, bottom: 0, left: 0}}
+                whileTap = {{cursor: "default"}}
+
+                
+            >
+            <TopContainer>
+                    <CircleWrapper>
+                        <Circle/>
+                    </CircleWrapper>
+                    <ItemWrapper>
+                        <Item style={{rotate : "-25deg"}}>
+                            <img src={nikeAirborne} alt="tenis"/> 
+                        </Item>
+                    </ItemWrapper>
+                    <Text>Nike AIR</Text>
+            </TopContainer>
+            <BottomContainer>
+                    <Details/>               
+            </BottomContainer>
+            </CardContainer>   
+        </CardWrapper>     
     );
 }
 

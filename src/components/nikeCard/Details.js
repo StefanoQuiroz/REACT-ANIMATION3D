@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-
+import logo from '../../images/nike-logo.png';
 const DetailsContainer = styled.div`
     width: 100%;
     height: 100%;
@@ -31,6 +31,38 @@ const SpacedHorizontalContainer = styled.div`
     align-items: center;
 `;
 
+const BuyButton = styled.button`
+    padding: 10px 16px;
+    background-color: #fbbe01;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+    border: 3px solid transparent;
+    outline: none;
+    cursor: pointer;
+    transition: all 290ms ease-in-out;
+    border-radius: 8px;
+
+    &:hover{
+        background-color: transparent;
+        color: #fff;
+        border: 3px solid #fbbe01;
+    }
+`;
+
+const Logo = styled.div`
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    img{
+        width: auto;height: 13px;
+    }
+
+`;
 const Details = (props) => {
     return (
         <DetailsContainer>
@@ -38,7 +70,11 @@ const Details = (props) => {
             <SpacedHorizontalContainer>
                 <MediumText>JORDAN CLASSIC LIMITED</MediumText>
                 <MediumText>CLP 173850.00</MediumText>
+                <BuyButton>BUY</BuyButton>
             </SpacedHorizontalContainer>
+            <Logo>
+                <img src={logo} alt="logotipo" />
+            </Logo>
         </DetailsContainer>
     );
 }
