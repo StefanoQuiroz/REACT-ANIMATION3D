@@ -2,7 +2,7 @@ import React from 'react';
 //import logo from './logo.svg';
 //import './App.css';
 import styled from 'styled-components';
-import NikeCard from './components/nikeCard/NikeCard'
+import Card from './components/nikeCard/Card'
 
 const Container = styled.div`
   height: 100%;
@@ -15,7 +15,7 @@ const Container = styled.div`
 function App() {
   return( 
     <Container>
-      <NikeCard/>
+      <Card/>
     </Container>
   )
 }
