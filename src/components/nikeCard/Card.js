@@ -1,5 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import nikeAirborne from '../../images/air-jordan-transparent.png';
+import {motion} from 'framer-motion';
+import Details from './Details';
+
+
 const CardContainer = styled.div`
     width: 285px;
     height: 500px;
@@ -45,7 +50,7 @@ const TopContainer = styled.div`
     flex: 1.2;
     position: relative;
     align-item: center;
-    justify-conten: flex-end;
+    justify-content: flex-end;
     padding: 1em 15px;
 `;
 
@@ -55,18 +60,56 @@ const BottomContainer = styled.div`
     padding: 0 1em 
 `;
 
+const Text = styled.h1`
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+    z-index: 10;
+    font-size: 76px;
+    font weight: 900;
+`;
+
+const ItemWrapper = styled.div`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+//Motion div =>(motion)
+const Item = styled(motion.div)`
+    width: auto;
+    height: 190px;
+    z-index: 99;
+    user-select: none;
+    margin-top: 2em;
+    margin-right: 3.5em;
+    img {
+        width: auto;
+        height: 100%;
+        user-select: none;
+    }
+    
+`;
 
 const Card = (props) => {
     return (
         <CardContainer>
            <TopContainer>
-               Top
                 <CircleWrapper>
                     <Circle/>
                 </CircleWrapper>
+                <ItemWrapper>
+                    <Item style={{rotate : "-25deg"}}>
+                        <img src={nikeAirborne} alt="tenis"/> 
+                    </Item>
+                </ItemWrapper>
+                <Text>Nike AIR</Text>
            </TopContainer>
            <BottomContainer>
-               Bottom
+                <Details/>               
            </BottomContainer>
         </CardContainer>        
     );
