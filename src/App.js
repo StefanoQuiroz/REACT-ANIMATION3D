@@ -12,6 +12,10 @@ const Container = styled.div`
   justify-content: center;
 `;
 
+/* const data = [{
+
+}] */
+
 function App() {
   return( 
     <Container>
