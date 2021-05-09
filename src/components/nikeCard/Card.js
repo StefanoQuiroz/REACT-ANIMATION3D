@@ -114,7 +114,8 @@ const Card = (props) => {
         <CardWrapper>
             <CardContainer 
                 style={{x,y,rotateX, rotateY, z:100}} 
-                drag dragElastic={0.16} 
+                drag 
+                dragElastic={0.16} 
                 dragConstraints={{top: 0, right: 0, bottom: 0, left: 0}}
                 whileTap = {{cursor: "default"}}
 
@@ -125,7 +126,12 @@ const Card = (props) => {
                         <Circle/>
                     </CircleWrapper>
                     <ItemWrapper>
-                        <Item style={{rotate : "-25deg"}}>
+                        <Item 
+                            style={{x, y, rotateX, rotateY, z:100000, rotate : "-25deg"}}
+                            drag
+                            dragElastic={0.12}
+                            whileTap = {{cursor: "default"}}
+                        >
                             <img src={nikeAirborne} alt="tenis"/> 
                         </Item>
                     </ItemWrapper>
